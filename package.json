@@ -1,0 +1,19 @@
+{
+  "name": "danessa-myricks-multicloud-poc",
+  "version": "1.0.0",
+  "description": "This project is a multi-cloud proof of concept designed for a beauty and cosmetics e-commerce brand. The goal was to demonstrate how AWS, Google Cloud Platform, and Microsoft Azure can work together to support web hosting, cloud storage, infrastructure, and database needs.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1078.0",
+    "@aws-sdk/lib-dynamodb": "^3.1078.0"
+  }
+}

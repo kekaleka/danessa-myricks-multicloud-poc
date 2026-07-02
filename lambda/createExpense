@@ -1,0 +1,34 @@
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
+
+const client = new DynamoDBClient({});
+const dynamo = DynamoDBDocumentClient.from(client);
+
+export const handler = async (event) => {
+    const body = JSON.parse(event.body);
+
+    const expense = {
+        userId: body.userId || "demo-user",
+        expenseId: Date.now().toString(),
+        date: body.date,
+        amount: body.amount,
+        category: body.category,
+        description: body.description
+    };
+
+    await dynamo.send(new PutCommand({
+        TableName: "BeautyExpenses",
+        Item: expense
+    }));
+
+    return {
+        statusCode: 200,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify({
+            message: "Expense created successfully",
+            expense: expense
+        })
+    };
+};
