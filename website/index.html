@@ -3,60 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danessa Myricks Multi-Cloud Project</title>
+    <title>Beauty Brand Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Danessa Myricks Multi-Cloud Proof of Concept</h1>
-        <p>
-            Demonstrating a multi-cloud architecture using
-            AWS, Microsoft Azure, and Google Cloud Platform.
-        </p>
-    </header>
+    <div class="container">
 
-    <main>
+        <h1>Beauty Brand Expense Tracker</h1>
 
-        <section>
-            <h2>Project Overview</h2>
+        <form id="expenseForm">
 
-            <p>
-                This project demonstrates how cloud resources from
-                multiple cloud providers can be combined into a single
-                cloud solution.
-            </p>
-        </section>
+            <input
+                type="date"
+                id="date"
+                required
+            >
 
-        <section>
+            <input
+                type="number"
+                id="amount"
+                placeholder="Amount"
+                required
+            >
 
-            <h2>Cloud Providers</h2>
+            <input
+                type="text"
+                id="category"
+                placeholder="Category"
+                required
+            >
 
-            <ul>
-                <li>Amazon Web Services (AWS)</li>
-                <li>Microsoft Azure</li>
-                <li>Google Cloud Platform</li>
-            </ul>
+            <input
+                type="text"
+                id="description"
+                placeholder="Description"
+                required
+            >
 
-        </section>
+            <button type="submit">
+                Add Expense
+            </button>
 
-        <section>
+        </form>
 
-            <h2>Technologies Used</h2>
+        <h2>Expenses</h2>
 
-            <ul>
-                <li>EC2</li>
-                <li>S3</li>
-                <li>Azure Database</li>
-                <li>Google Compute Engine</li>
-                <li>Cloud Storage</li>
-                <li>Ubuntu Linux</li>
-                <li>Nginx</li>
-            </ul>
+        <div id="expenseList"></div>
 
-        </section>
+    </div>
 
-    </main>
+    <script src="app.js"></script>
 
 </body>
 </html>
