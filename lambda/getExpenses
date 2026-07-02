@@ -1,0 +1,29 @@
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
+
+const client = new DynamoDBClient({});
+const dynamo = DynamoDBDocumentClient.from(client);
+
+export const handler = async (event) => {
+
+    const userId =
+        event.queryStringParameters?.userId || "demo-user";
+
+    const result = await dynamo.send(
+        new QueryCommand({
+            TableName: "BeautyExpenses",
+            KeyConditionExpression: "userId = :userId",
+            ExpressionAttributeValues: {
+                ":userId": userId
+            }
+        })
+    );
+
+    return {
+        statusCode: 200,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify(result.Items)
+    };
+};
